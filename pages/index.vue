@@ -7,10 +7,9 @@
       <h3 class="text-3xl mt-24 font-medium">Guides</h3>
       <p class="text-2xl w-full sm:max-w-xl mt-8 text-stone-500">Check out these practical guides to help you understand how to design for the Shopify platform using Polaris.</p>
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 mt-10 pb-10 border-b-4 border-gray-100">
-        <a href="#!" class="text-blue-500 underline">Shopify experience values</a>
-        <a href="#!" class="text-blue-500 underline">Page layouts</a>
-        <a href="#!" class="text-blue-500 underline">Designing apps for Shopify</a>
-        <a href="#!" class="text-blue-500 underline">Internationalization</a>
+      <template>
+        <a v-for="item in sectionItems" :key="item.id" :href=item.link :class=linkStyles >{{ item.title }}</a>
+      </template>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 my-10">
         <div>
@@ -103,6 +102,30 @@
 
 <script>
 export default {
-  name: 'IndexPage'
-}
+  name: 'IndexPage',
+
+  data() {
+    return {
+      sectionItems: [
+        { link: "#link1", title: "Shopify experience values" },
+        { link: "#link2", title: "Page layouts" },
+        { link: "#link3", title: "Designing apps for Shopify" },
+        { link: "#link4", title: "Internationalization" },
+      ],
+      linkStyles: ['text-blue-500 underline'],
+    };
+  },
+
+  // data() {
+  //   return {
+  //     sectionTwoItems: [
+  //       { title: "Shopify experience values", link: "#link1", desc: '' },
+  //       { title: "Page layouts", link: "#link2", desc:'' },
+  //       { title: "Designing apps for Shopify", link: "#link3", desc: '' },
+  //       { title: "Internationalization", link: "#link4", desc: '' },
+  //     ],
+  //     linkStyles: ['text-blue-500 underline'],
+  //   };
+  // },
+};
 </script>
