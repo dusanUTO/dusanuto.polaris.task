@@ -1,8 +1,6 @@
 <template>
   <header>
-    <nav
-      class="navbar navbar-expand-lg py-6 relative flex items-center w-full xl:max-w-7xl xl:mx-auto"
-    >
+    <nav class="navbar navbar-expand-lg py-6 relative flex items-center w-full xl:max-w-7xl xl:mx-auto">
       <div class="px-6 2xl:px-0 w-full flex flex-wrap items-center justify-end">
         <a href="#!" class="logo mr-auto" rel="link">
           <svg xmlns="http://www.w3.org/2000/svg" width="120" height="60">
@@ -23,38 +21,12 @@
             />
           </svg>
         </a>
-        <div
-          class="navbar-collapse collapse items-center mr-4 hidden lg:block"
-          id="navbarSupportedContentY"
-        >
+        <div class="navbar-collapse collapse items-center mr-4 hidden lg:block" id="navbarSupportedContentY">
           <ul id="main-nav" class="navbar-nav mr-auto lg:flex lg:flex-row">
-            <!-- <li class="nav-item">
-            <a class="nav-link block pr-3 lg:px-4 py-2 text-black hover:text-green-600 focus:text-green-600 transition duration-150 ease-in-out"
-              href="#!">Foundations</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link block pr-3 lg:px-4 py-2 text-black hover:text-green-600 focus:text-green-600 transition duration-150 ease-in-out"
-              href="#!">Content</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link block pr-3 lg:px-4 py-2 text-black hover:text-green-600 focus:text-green-600 transition duration-150 ease-in-out"
-              href="#!">Design</a>
-          </li>
-          <li class="nav-item mb-2 lg:mb-0">
-            <a class="nav-link block pr-3 lg:px-4 py-2 text-black hover:text-green-600 focus:text-green-600 transition duration-150 ease-in-out"
-              href="#!">Tokens</a>
-          </li>
-          <li class="nav-item mb-2 lg:mb-0">
-            <a class="nav-link block pr-3 lg:px-4 py-2 text-black hover:text-green-600 focus:text-green-600 transition duration-150 ease-in-out"
-              href="#!">Components</a>
-          </li>
-          <li class="nav-item mb-2 lg:mb-0">
-            <a class="nav-link block pr-3 lg:px-4 py-2 text-black hover:text-green-600 focus:text-green-600 transition duration-150 ease-in-out"
-              href="#!">Patterns</a>
-          </li> -->
             <template>
               <li v-for="item in menuItems" :key="item.id">
-                <a :href=item.link :class=linkStyles >{{ item.title }}</a></li>
+                <a :href=item.link :class=linkStyles >{{ item.title }}</a>
+              </li>
             </template>
           </ul>
         </div>
