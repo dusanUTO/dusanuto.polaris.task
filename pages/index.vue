@@ -1,37 +1,24 @@
 <template>
   <div class="main bg-neutral-100">
     <headerComp />
-    <div class="container max-w-7xl mx-auto px-6 py-20 2xl:p-28 rounded-xl bg-contain bg-no-repeat bg-white border border-gray-200" style="background-image:url('https://polaris.shopify.com/bundles/493efd38c8d3ec9de863ac327a04f49e6dfc069465e960dcd295d28ddadaae02.svg');">
+    <div class="container max-w-7xl mx-auto px-6 py-20 2xl:p-28 rounded-xl bg-[url('~/static/bg-1.svg')] bg-contain bg-no-repeat bg-white border border-gray-200">
       <h1 class="text-5xl font-medium">Polaris</h1>
       <p class="text-2xl w-full sm:max-w-sm mt-8">Our design system helps us work together to build a great experience for all of Shopify’s merchants.</p>
       <h3 class="text-3xl mt-24 font-medium">Guides</h3>
       <p class="text-2xl w-full sm:max-w-xl mt-8 text-stone-500">Check out these practical guides to help you understand how to design for the Shopify platform using Polaris.</p>
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 mt-10 pb-10 border-b-4 border-gray-100">
-      <template>
-        <a v-for="item in sectionItems" :key="item.id" :href=item.link :class=linkStyles >{{ item.title }}</a>
-      </template>
+        <template>
+          <a v-for="item in sectionItems" :key="item.id" :href=item.link :class=linkStyles >{{ item.title }}</a>
+        </template>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 my-10">
-        <div>
-          <h4 class="text-2xl mb-4">Content</h4>
-          <p class="mb-4">Learn how to use language to design a more thoughtful product experience.</p>
-          <a href="#!" class="text-blue-500 underline">Read content guidelines</a>
-        </div>
-        <div>
-          <h4 class="text-2xl mb-4">Design</h4>
-          <p class="mb-4">Find out how we approach the visual elements of our interface with purpose.</p>
-          <a href="#!" class="text-blue-500 underline">Read design guidelines</a>
-        </div>
-        <div>
-          <h4 class="text-2xl mb-4">Components</h4>
-          <p class="mb-4">Use components as building blocks as you develop new products and features.</p>
-          <a href="#!" class="text-blue-500 underline">Browse components</a>
-        </div>
-        <div>
-          <h4 class="text-2xl mb-4">Patterns</h4>
-          <p class="mb-4">Read guidance for crafting patterns in the Shopify admin.</p>
-          <a href="#!" class="text-blue-500 underline">Browse experiences</a>
-        </div>
+        <template>
+          <div v-for="item in sectionTwoItems" :key="item.id">
+            <h4 class="text-2xl mb-4">{{ item.title }}</h4>
+            <p class="mb-4">{{ item.desc }}</p>
+            <a :href=item.link :class=linkStyles >{{ item.linkText }}</a>
+          </div>          
+        </template>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-16 pb-16 border-b-4 border-gray-100">
         <div class="px-5 py-10 md:px-10 bg-stone-100 rounded-md">
@@ -43,55 +30,31 @@
         <div class="px-5 py-10 md:px-10 bg-stone-100 rounded-md">
           <h6 class="font-medium">Blog posts, talks, and events</h6>
           <div class="mt-4">
-            <div class="flex mb-4">
-              <img src="https://ritecaremedicalofficepc.com/wp-content/uploads/2019/09/img_avatar.png" class="w-16 h-16 rounded-2xl mr-4" />
-              <div class="flex-col">
-                <a href="#!" class="text-blue-500 underline flex-grow-3">Design systems are flawed</a>
-                <div class="flex">
-                  <p class="mr-2">Post by</p>
-                  <a href="#!" class="text-gray-500 underline">José Torre</a>
+            <template>
+              <div v-for="item in sectionThreeItems" :key="item.id" class="flex mb-4 last:mb-0 ">
+                <img :src="require('~/assets/img/'+item.img+'.jpg')" class="w-16 h-16 rounded-2xl mr-4" />
+                <div class="flex-col">
+                  <a :href=item.link :class=linkStyles >{{ item.linkText }}</a>
+                  <div class="flex">
+                    <p class="mr-2">Post by</p>
+                    <a :href=item.authorLink :class=linkStyles >{{ item.author }}</a>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="flex mb-4">
-              <img src="https://ritecaremedicalofficepc.com/wp-content/uploads/2019/09/img_avatar.png" class="w-16 h-16 rounded-2xl mr-4" />
-              <div class="flex-col">
-                <a href="#!" class="text-blue-500 underline flex-grow-3">How to create accessible and inclusive product content guidelines</a>
-                <div class="flex">
-                  <p class="mr-2">Post by</p>
-                  <a href="#!" class="text-gray-500 underline">Shay Perez</a>
-                </div>
-              </div>
-            </div>
-            <div class="flex">
-              <img src="https://ritecaremedicalofficepc.com/wp-content/uploads/2019/09/img_avatar.png" class="w-16 h-16 rounded-2xl mr-4" />
-              <div class="flex-col">
-                <a href="#!" class="text-blue-500 underline flex-grow-3">A map for uncovering your assumptions</a>
-                <div class="flex">
-                  <p class="mr-2">Post by</p>
-                  <a href="#!" class="text-gray-500 underline">Sara Hill</a>
-                </div>
-              </div>
-            </div>
-          </div>       
+              </div>          
+            </template>  
+          </div>             
         </div> 
       </div>
       <div class="mt-10">
         <h3 class="text-3xl font-medium mb-3">Resources</h3>
         <p class="w-full md:max-w-2xl">Downloads, links, and third-party tools to help you and your teams learn, draft, design, and build products for Shopify.</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-20">
-          <div>
-            <h5 class="text-2xl">React components</h5>
-            <p>Browse the source code and latest release notes on GitHub.</p>
-          </div>
-          <div>
-            <h5 class="text-2xl">Figma UI Kit</h5>
-            <p>Access the Figma UI Kit via the Shopify Figma Community profile.</p>
-          </div>
-          <div>
-            <h5 class="text-2xl">GraphQL API</h5>
-            <p> Use the API to build Figma plugins, text editor extensions, or even a completely new site.</p>
-          </div>
+          <template>
+            <div v-for="item in sectionFourItems" :key="item.id">
+              <h5 class="text-2xl">{{ item.title }}</h5>
+              <p>{{ item.desc }}</p>
+            </div>          
+          </template>
         </div>
         <a href="#!" class="block text-blue-500 underline flex-grow-3 mt-10 md:text-center">Browse more resources</a>
       </div>  
@@ -112,20 +75,24 @@ export default {
         { link: "#link3", title: "Designing apps for Shopify" },
         { link: "#link4", title: "Internationalization" },
       ],
-      linkStyles: ['text-blue-500 underline'],
+      sectionTwoItems: [
+        { title: "Content", desc: 'Learn how to use language to design a more thoughtful product experience.', linkText: "Read content guidelines", link: "#link1" },
+        { title: "Design", desc: 'Find out how we approach the visual elements of our interface with purpose.', linkText: "Read design guidelines", link: "#link2" },
+        { title: "Components", desc: 'Use components as building blocks as you develop new products and features.', linkText: "Browse components", link: "#link3" },
+        { title: "Patterns", desc: 'Read guidance for crafting patterns in the Shopify admin.', linkText: "Browse experiences", link: "#link4"},
+      ],
+      sectionThreeItems: [
+        { img: "avatar-m", linkText: "Design systems are flawed", link: "#link1", author: "José Torre", authorLink: "#al1" },
+        { img: "avatar-m", linkText: "How to create accessible and inclusive product content guidelines", link: "#link2", author: "Shay Perez", authorLink: "#al2" },
+        { img: "avatar-f", linkText: "A map for uncovering your assumptions", link: "#link3", author: "Sara Hill", authorLink: "#al3" },
+      ],
+      sectionFourItems: [
+        { title: "React components", desc: "Browse the source code and latest release notes on GitHub." },
+        { title: "Figma UI Kit", desc: "Access the Figma UI Kit via the Shopify Figma Community profile." },
+        { title: "GraphQL API", desc: "Use the API to build Figma plugins, text editor extensions, or even a completely new site." },
+      ],
+      linkStyles: ['text-blue-500 underline flex-grow-3'],
     };
-  },
-
-  // data() {
-  //   return {
-  //     sectionTwoItems: [
-  //       { title: "Shopify experience values", link: "#link1", desc: '' },
-  //       { title: "Page layouts", link: "#link2", desc:'' },
-  //       { title: "Designing apps for Shopify", link: "#link3", desc: '' },
-  //       { title: "Internationalization", link: "#link4", desc: '' },
-  //     ],
-  //     linkStyles: ['text-blue-500 underline'],
-  //   };
-  // },
+  }
 };
 </script>

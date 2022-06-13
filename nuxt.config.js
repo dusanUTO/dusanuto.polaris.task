@@ -13,7 +13,14 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+    script: [
+      {
+        src: "https://cdn.jsdelivr.net/npm/vue@3.2.36",
+        async: true,
+        crossorigin: "anonymous"
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -37,7 +44,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
   ],
-
+  
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     postcss: {
@@ -46,5 +53,5 @@ export default {
         autoprefixer: {},
       },
     },
-  }
+  },
 }
